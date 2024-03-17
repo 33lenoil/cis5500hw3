@@ -19,7 +19,7 @@ connection.connect((err) => err && console.log(err));
 // Route 1: GET /author/:type
 const author = async function (req, res) {
   // TODO (TASK 1): replace the values of name and pennkey with your own
-  const name = 'Hantong Hu';
+  const name = 'Lionel Hu';
   const pennkey = 'lionelhu';
 
   // checks the value of type in the request parameters
