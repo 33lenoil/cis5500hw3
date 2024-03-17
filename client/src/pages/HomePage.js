@@ -10,6 +10,7 @@ export default function HomePage() {
   // We use the setState hook to persist information across renders (such as the result of our API calls)
   const [songOfTheDay, setSongOfTheDay] = useState({});
   // TODO (TASK 13): add a state variable to store the app author (default to '')
+  const [author, setAuthor] = useState('');
 
   const [selectedSongId, setSelectedSongId] = useState(null);
 
@@ -27,6 +28,10 @@ export default function HomePage() {
       .then(resJson => setSongOfTheDay(resJson));
 
     // TODO (TASK 14): add a fetch call to get the app author (name not pennkey) and store the name field in the state variable
+    fetch(`http://${config.server_host}:${config.server_port}//author/name`)
+      .then(res => res.json())
+      .then(resJson => setAuthor(resJson.name));
+
   }, []);
 
   // Here, we define the columns of the "Top Songs" table. The songColumns variable is an array (in order)
